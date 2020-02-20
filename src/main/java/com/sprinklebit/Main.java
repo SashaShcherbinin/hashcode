@@ -15,7 +15,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("test");
 
-        String fileName = "a_example.txt";
+        calculation("a_example.txt");
+        calculation("b_read_on.txt");
+        calculation("a_example.txt");
+        calculation("a_example.txt");
+    }
+
+    private static void calculation(String fileName) {
         List<List<String>> s = ReaderWriter.read(fileName);
         int bookCount = Integer.parseInt(s.get(0).get(0));
         int librariesCount = Integer.parseInt(s.get(0).get(1));
