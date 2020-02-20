@@ -24,7 +24,7 @@ public class AlexCalculation {
             }
         }
 
-        return new Result(0, new ArrayList<Info>());
+        return mapResult();
     }
 
     private static Result mapResult(List<Library> libraryList) {

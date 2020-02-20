@@ -73,7 +73,7 @@ public class Main {
             int signProcess = Integer.parseInt(s.get(i).get(1));
             int booksPerDay = Integer.parseInt(s.get(i).get(2));
             int id = i / 2;
-            int[] booksList = new int[booksCount];
+            Integer[] booksList = new Integer[booksCount];
             for (int j = 0; j < s.get(i + 1).size(); j++) {
                 booksList[j] = Integer.parseInt(s.get(i + 1).get(j));
             }
@@ -84,11 +84,4 @@ public class Main {
         return libs;
     }
 
-    private static Result calculate(List<Library> libs) {
-
-
-
-        return new Result(0, new ArrayList<Info>());
-
-    }
 }
