@@ -10,7 +10,7 @@ public class Library {
     public int booksPerDay = 0;
     public int[] booksIds;
 
-    public int baseScore = 0;
+    public float baseScore = 0;
 
     public Library(int id,
                    int booksCount,
