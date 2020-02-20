@@ -7,6 +7,7 @@ public class Library {
     public int[] booksIds;
 
     public int baseScore = 0;
+    public float kpd = 0f;
 
     public Library(int booksCount,
                    int signUpInDays,
@@ -21,6 +22,8 @@ public class Library {
         for (int booksId : booksIds) {
             baseScore += Main.scoreList[booksId];
         }
+
+        kpd = baseScore / ((booksCount / booksPerDay) + signUpInDays)
 
     }
 
