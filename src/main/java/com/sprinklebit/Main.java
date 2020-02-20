@@ -35,7 +35,6 @@ public class Main {
 
         List<Library> libs = createInput(s);
 
-//        Result calculate = calculate(libs);
         Result calculate = AlexCalculation.cacluclate(libs, librariesCount, maxDays);
 
         String stringResult = createOutPutString(calculate);
