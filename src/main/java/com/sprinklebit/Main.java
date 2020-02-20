@@ -15,7 +15,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("test");
 
-        String fileName = "a_example.txt";
+        calculation("a_example.txt");
+        calculation("b_read_on.txt");
+        calculation("a_example.txt");
+        calculation("a_example.txt");
+    }
+
+    private static void calculation(String fileName) {
         List<List<String>> s = ReaderWriter.read(fileName);
         int bookCount = Integer.parseInt(s.get(0).get(0));
         int librariesCount = Integer.parseInt(s.get(0).get(1));
@@ -29,7 +35,6 @@ public class Main {
 
         List<Library> libs = createInput(s);
 
-//        Result calculate = calculate(libs);
         Result calculate = AlexCalculation.cacluclate(libs, librariesCount, maxDays);
 
         String stringResult = createOutPutString(calculate);
@@ -68,7 +73,7 @@ public class Main {
             int signProcess = Integer.parseInt(s.get(i).get(1));
             int booksPerDay = Integer.parseInt(s.get(i).get(2));
             int id = i / 2;
-            int[] booksList = new int[booksCount];
+            Integer[] booksList = new Integer[booksCount];
             for (int j = 0; j < s.get(i + 1).size(); j++) {
                 booksList[j] = Integer.parseInt(s.get(i + 1).get(j));
             }
@@ -79,11 +84,4 @@ public class Main {
         return libs;
     }
 
-    private static Result calculate(List<Library> libs) {
-
-
-
-        return new Result(0, new ArrayList<Info>());
-
-    }
 }
