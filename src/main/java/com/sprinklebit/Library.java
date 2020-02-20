@@ -1,5 +1,6 @@
 package com.sprinklebit;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -22,15 +23,22 @@ public class Library {
         this.signUpInDays = signUpInDays;
         this.booksPerDay = booksPerDay;
         this.booksIds = booksIds;
+    }
+
+    void updateScore(int maxDays, Set<Integer> usedBooks) {
+        Set<Integer> leftBooks = removeUsedBooks(usedBooks);
+
 
         baseScore = 0;
         for (int booksId : booksIds) {
             baseScore += Main.scoreList[booksId];
         }
+
+        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
     }
 
-    void updateScore(int maxDays, Set<Integer> usedBooks) {
-        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
+    private Set<Integer> removeUsedBooks(Set<Integer> usedBooks) {
+        // todo remove used books from booksIds
     }
 
 
