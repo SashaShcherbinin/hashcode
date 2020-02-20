@@ -16,4 +16,8 @@ public class AlexCalculation {
 
         return new Result(0, new ArrayList<Info>());
     }
+
+    List<Integer> getUsedBooks(Library library, int maxDays) {
+
+    }
 }
