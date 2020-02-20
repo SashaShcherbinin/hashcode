@@ -20,7 +20,7 @@ public class Main {
         List<List<String>> s = ReaderWriter.read(fileName);
         int bookCount = Integer.parseInt(s.get(0).get(0));
         int librariesCount = Integer.parseInt(s.get(0).get(1));
-        int days = Integer.parseInt(s.get(0).get(2));
+        int maxDays = Integer.parseInt(s.get(0).get(2));
 
         scoreList = new int[bookCount];
         List<String> booksScore = s.get(1);
@@ -30,11 +30,12 @@ public class Main {
 
         List<Library> libs = createInput(s);
 
-        Result calculate = calculate(libs);
+//        Result calculate = calculate(libs);
+        Result calculate = AlexCalculation.cacluclate(libs, librariesCount, maxDays);
         String stringResult = createOutPutString(calculate);
 
         try {
-            ReaderWriter.write(stringResult.toString(),fileName);
+            ReaderWriter.write(stringResult,fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
