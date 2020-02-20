@@ -11,7 +11,6 @@ import java.util.List;
 public class Main {
 
     public static int[] scoreList;
-    public static List<Integer> scannedBooks = new ArrayList<>();
 
     public static void main(String[] args) {
         System.out.println("test");
@@ -20,7 +19,7 @@ public class Main {
         List<List<String>> s = ReaderWriter.read(fileName);
         int bookCount = Integer.parseInt(s.get(0).get(0));
         int librariesCount = Integer.parseInt(s.get(0).get(1));
-        int days = Integer.parseInt(s.get(0).get(2));
+        int maxDays = Integer.parseInt(s.get(0).get(2));
 
         scoreList = new int[bookCount];
         List<String> booksScore = s.get(1);
@@ -30,11 +29,13 @@ public class Main {
 
         List<Library> libs = createInput(s);
 
-        Result calculate = calculate(libs, days);
+//        Result calculate = calculate(libs);
+        Result calculate = AlexCalculation.cacluclate(libs, librariesCount, maxDays);
+
         String stringResult = createOutPutString(calculate);
 
         try {
-            ReaderWriter.write(stringResult.toString(),fileName);
+            ReaderWriter.write(stringResult,fileName);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,8 +79,11 @@ public class Main {
         return libs;
     }
 
-    private static Result calculate(List<Library> libs, int days) {
+    private static Result calculate(List<Library> libs) {
 
-        return Calculator.calculate(libs, days);
+
+
+        return new Result(0, new ArrayList<Info>());
+
     }
 }
