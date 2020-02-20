@@ -14,9 +14,15 @@ public class AlexCalculation {
         Set<Integer> usedBooks = new LinkedHashSet<>();
         int innerMaxDays = maxDays;
 
-        Library bestLibrary = getBestLibrary(libs, usedBooks, innerMaxDays);
-        innerMaxDays -= bestLibrary.signUpInDays;
-        usedBooks.addAll(getUsedBooks(bestLibrary, innerMaxDays));
+        while (innerMaxDays >= 0) {
+            Library bestLibrary = getBestLibrary(libs, usedBooks, innerMaxDays);
+            libs.remove(bestLibrary);
+            innerMaxDays -= bestLibrary.signUpInDays;
+            usedBooks.addAll(getUsedBooks(bestLibrary, innerMaxDays));
+            if (libs.size() == 0) {
+                break;
+            }
+        }
 
         return new Result(0, new ArrayList<Info>());
     }
