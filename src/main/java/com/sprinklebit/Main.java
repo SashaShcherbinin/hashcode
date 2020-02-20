@@ -11,7 +11,6 @@ import java.util.List;
 public class Main {
 
     public static int[] scoreList;
-    public static List<Integer> scannedBooks = new ArrayList<>();
 
     public static void main(String[] args) {
         System.out.println("test");
@@ -32,6 +31,7 @@ public class Main {
 
 //        Result calculate = calculate(libs);
         Result calculate = AlexCalculation.cacluclate(libs, librariesCount, maxDays);
+
         String stringResult = createOutPutString(calculate);
 
         try {
