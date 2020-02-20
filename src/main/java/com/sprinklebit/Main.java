@@ -30,7 +30,7 @@ public class Main {
 
         List<Library> libs = createInput(s);
 
-        Result calculate = calculate(libs);
+        Result calculate = calculate(libs, days);
         String stringResult = createOutPutString(calculate);
 
         try {
@@ -78,7 +78,8 @@ public class Main {
         return libs;
     }
 
-    private static Result calculate(List<Library> libs) {
-        return new Result(0, new ArrayList<Info>());
+    private static Result calculate(List<Library> libs, int days) {
+
+        return Calculator.calculate(libs, days);
     }
 }

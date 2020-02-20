@@ -7,15 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    public static Result calculate(List<Library> libs) {
+    public static Result calculate(List<Library> libs, int days) {
         Library bestLib = getBestLib(libs);
 
-        int daysLeft = bestLib.signUpInDays;
-
-
+        int daysLeft = days - bestLib.signUpInDays;
+        libs.remove(bestLib);
+        List<Integer> bookIds = new ArrayList<>();
+        addBooks(bookIds, bestLib);
         List<Info> outputLibs = new ArrayList<>();
-        Result result = new Result(outputLibs.size(), outputLibs);
-        return result;
+        Info info = new Info(bestLib.id, 0, bookIds);
+        info.bookCount = bookIds.size();
+        outputLibs.add(info);
+        return new Result(outputLibs.size(), outputLibs);
+    }
+
+    private static void addBooks(List<Integer> bookIds, Library bestLib) {
+        for (int i=0; i<bestLib.booksPerDay; i++)
+        bookIds.add(bestLib.booksIds[i]);
     }
 
     private static Library getBestLib(List<Library> libs) {
