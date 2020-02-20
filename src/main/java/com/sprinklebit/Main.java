@@ -4,6 +4,7 @@ import com.sprinklebit.output.Info;
 import com.sprinklebit.output.Result;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("test");
-//        try {
-//            ReaderWriter.write("fffaaa", "result");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
-        List<List<String>> s = ReaderWriter.read("a_example.txt");
+        String fileName = "a_example.txt";
+        List<List<String>> s = ReaderWriter.read(fileName);
         int bookCount = Integer.parseInt(s.get(0).get(0));
         int librariesCount = Integer.parseInt(s.get(0).get(1));
         int days = Integer.parseInt(s.get(0).get(2));
@@ -33,7 +30,34 @@ public class Main {
 
         List<Library> libs = createInput(s);
 
-        calculate(libs);
+        Result calculate = calculate(libs);
+        String stringResult = createOutPutString(calculate);
+
+        try {
+            ReaderWriter.write(stringResult.toString(),fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String createOutPutString(Result calculate) {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(calculate.libraryCount);
+        stringBuilder.append("\n");
+        for(Info info : calculate.infoList) {
+            stringBuilder.append(info.libraryId);
+            stringBuilder.append(" ");
+            stringBuilder.append(info.bookCount);
+            stringBuilder.append("\n");
+            for(int bookId: info.bookIds) {
+                stringBuilder.append(bookId);
+                stringBuilder.append(" ");
+            }
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.append("\n");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
     }
 
     private static List<Library> createInput(List<List<String>> s) {
