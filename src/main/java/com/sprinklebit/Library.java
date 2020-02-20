@@ -10,7 +10,7 @@ public class Library {
     public int booksCount = 0;
     public int signUpInDays = 0;
     public int booksPerDay = 0;
-    public int[] booksIds;
+    public Integer[] booksIds;
 
     public float baseScore = 0;
 
@@ -18,7 +18,7 @@ public class Library {
                    int booksCount,
                    int signUpInDays,
                    int booksPerDay,
-                   int[] booksIds) {
+                   Integer[] booksIds) {
         this.id = id;
         this.booksCount = booksCount;
         this.signUpInDays = signUpInDays;
@@ -28,6 +28,7 @@ public class Library {
 
     void updateScore(int maxDays, Set<Integer> usedBooks) {
         Set<Integer> leftBooks = removeUsedBooks(usedBooks);
+        booksIds = leftBooks.toArray(new Integer[leftBooks.size()]);
         leftBooks = AlexCalculation.getUsedBooks(this, maxDays);
 
         int libraryScore = 0;
