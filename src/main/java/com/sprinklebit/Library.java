@@ -1,6 +1,7 @@
 package com.sprinklebit;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -38,8 +39,14 @@ public class Library {
     }
 
     private Set<Integer> removeUsedBooks(Set<Integer> usedBooks) {
-        // todo remove used books from booksIds
+        Set<Integer> booksSet = new LinkedHashSet<>();
+        for (int i=0; i<this.booksIds.length; i++) {
+            if (usedBooks.contains(this.booksIds[i])) {
+                continue;
+            }
+            booksSet.add(this.booksIds[i]);
+        }
+
+        return booksSet;
     }
-
-
 }
