@@ -1,5 +1,7 @@
 package com.sprinklebit;
 
+import java.util.List;
+
 public class Library {
     public int id;
     public int booksCount = 0;
@@ -25,9 +27,11 @@ public class Library {
         for (int booksId : booksIds) {
             baseScore += Main.scoreList[booksId];
         }
-
-        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
-
     }
+
+    void updateScore(int maxDays, List<Integer> usedBooks) {
+        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
+    }
+
 
 }
