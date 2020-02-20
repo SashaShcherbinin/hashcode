@@ -29,8 +29,8 @@ public class AlexCalculation {
         }
     }
 
-    static List<Integer> getUsedBooks(Library library, int maxDays) {
-        List<Integer> result = null;
+    static Set<Integer> getUsedBooks(Library library, int maxDays) {
+        Set<Integer> result = null;
         int bestScore = 0;
         int[] leastScore = Main.scoreList.clone();
 
