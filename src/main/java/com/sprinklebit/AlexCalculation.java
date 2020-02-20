@@ -24,9 +24,15 @@ public class AlexCalculation {
     private static Library getBestLibrary(List<Library> libs,
                                           Set<Integer> usedBooks,
                                           int innerMaxDays) {
+        Library bestLibrary = libs.get(0);
         for(Library library : libs) {
             library.updateScore(innerMaxDays, usedBooks);
+            if (bestLibrary.baseScore > library.baseScore) {
+                bestLibrary = library;
+            }
         }
+
+        return bestLibrary;
     }
 
     static List<Integer> getUsedBooks(Library library, int maxDays) {
