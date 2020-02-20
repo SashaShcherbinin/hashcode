@@ -28,14 +28,14 @@ public class Library {
 
     void updateScore(int maxDays, Set<Integer> usedBooks) {
         Set<Integer> leftBooks = removeUsedBooks(usedBooks);
+        leftBooks = AlexCalculation.getUsedBooks(this, maxDays);
 
-
-        baseScore = 0;
-        for (int booksId : booksIds) {
-            baseScore += Main.scoreList[booksId];
+        int libraryScore = 0;
+        for (int booksId : leftBooks) {
+            libraryScore += Main.scoreList[booksId];
         }
 
-        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
+        baseScore = libraryScore;
     }
 
     private Set<Integer> removeUsedBooks(Set<Integer> usedBooks) {
