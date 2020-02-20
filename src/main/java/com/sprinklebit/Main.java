@@ -1,6 +1,8 @@
 package com.sprinklebit;
 
-import java.io.IOException;
+import com.sprinklebit.output.Result;
+import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +30,12 @@ public class Main {
             scoreList[i] = Integer.parseInt(booksScore.get(i));
         }
 
-        Library bestLib = null;
-        float bestKpd = 0;
+        List<Library> libs = createInput(s);
+
+        calculate(libs);
+    }
+
+    private static List<Library> createInput(List<List<String>> s) {
         List<Library> libs = new ArrayList<>();
         for (int i = 2; i < s.size(); i = i + 2) {
             int booksCount = Integer.parseInt(s.get(i).get(0));
@@ -42,18 +48,12 @@ public class Main {
             }
 
             Library lib = new Library(id, booksCount, signProcess, booksPerDay, booksList);
-            if (bestKpd < lib.kpd) {
-                bestLib = lib;
-                bestKpd = lib.kpd;
-            }
             libs.add(lib);
         }
+        return libs;
+    }
 
-        libs.remove(bestLib);
-
-
-
-
-        int a = 0;
+    private static Result calculate(List<Library> libs) {
+        return Result();
     }
 }
