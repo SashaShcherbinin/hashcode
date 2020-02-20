@@ -3,10 +3,7 @@ package com.sprinklebit;
 import com.sprinklebit.output.Info;
 import com.sprinklebit.output.Result;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class AlexCalculation {
 
@@ -27,12 +24,18 @@ public class AlexCalculation {
         }
 
 
-
-        return new Result(0, new ArrayList<Info>());
+        return mapResult(usedLibraries);
     }
 
     private static Result mapResult(List<Library> libraryList) {
-        // todo Tania
+        List<Info> infos = new ArrayList<>();
+        for (int i=0; i<libraryList.size(); i++) {
+            List<Integer> ids = Arrays.asList(libraryList.get(i).booksIds);
+            Info info = new Info(libraryList.get(i).id, libraryList.get(i).booksIds.length, ids);
+            infos.add(info);
+        }
+
+        return new Result(infos.size(), infos);
     }
 
     private static Library getBestLibrary(List<Library> libs,
