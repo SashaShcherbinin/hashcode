@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Main {
 
+    public static int[] scoreList;
+
     public static void main(String[] args) {
         System.out.println("test");
 //        try {
@@ -19,7 +21,7 @@ public class Main {
         int librariesCount = Integer.parseInt(s.get(0).get(1));
         int days = Integer.parseInt(s.get(0).get(2));
 
-        int[] scoreList = new int[bookCount];
+        scoreList = new int[bookCount];
         List<String> booksScore = s.get(1);
         for (int i = 0; i < booksScore.size(); i++) {
             scoreList[i] = Integer.parseInt(booksScore.get(i));
