@@ -9,20 +9,18 @@ public class AlexCalculation {
 
     public static Result cacluclate(List<Library> libs, int librariesCount, int maxDays) {
         Set<Integer> usedBooks = new LinkedHashSet<>();
-        int innerMaxDays = maxDays;
         List<Library> usedLibraries = new ArrayList<>();
 
-        while (innerMaxDays >= 0) {
-            Library bestLibrary = getBestLibrary(libs, usedBooks, innerMaxDays);
+        while (maxDays >= 0) {
+            Library bestLibrary = getBestLibrary(libs, usedBooks, maxDays);
             libs.remove(bestLibrary);
             usedLibraries.add(bestLibrary);
-            innerMaxDays -= bestLibrary.signUpInDays;
-            usedBooks.addAll(getUsedBooks(bestLibrary, innerMaxDays));
+            maxDays -= bestLibrary.signUpInDays;
+            usedBooks.addAll(getUsedBooks(bestLibrary, maxDays));
             if (libs.size() == 0) {
                 break;
             }
         }
-
 
         return mapResult(usedLibraries);
     }
@@ -42,9 +40,10 @@ public class AlexCalculation {
                                           Set<Integer> usedBooks,
                                           int innerMaxDays) {
         Library bestLibrary = libs.get(0);
+        System.out.println(bestLibrary.id);
         for (Library library : libs) {
             library.updateScore(innerMaxDays, usedBooks);
-            if (library.baseScore > bestLibrary.baseScore) {
+            if (library.baseScore >= bestLibrary.baseScore) {
                 bestLibrary = library;
             }
         }

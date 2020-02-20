@@ -13,14 +13,12 @@ public class Main {
     public static int[] scoreList;
 
     public static void main(String[] args) {
-        System.out.println("test");
-
-        calculation("a_example.txt");
-        calculation("b_read_on.txt");
+//        calculation("a_example.txt");
+//        calculation("b_read_on.txt");
         calculation("c_incunabula.txt");
-        calculation("d_tough_choices");
-        calculation("e_so_many_books.txt");
-        calculation("f_libraries_of_the_world.txt");
+//        calculation("d_tough_choices");
+//        calculation("e_so_many_books.txt");
+//        calculation("f_libraries_of_the_world.txt");
     }
 
     private static void calculation(String fileName) {
