@@ -27,12 +27,11 @@ public class Library {
         for (int booksId : booksIds) {
             baseScore += Main.scoreList[booksId];
         }
-
-        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
     }
 
     void updateScore(int maxDays, List<Integer> usedBooks) {
-
+        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
     }
+
 
 }
