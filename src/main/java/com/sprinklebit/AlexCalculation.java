@@ -49,8 +49,10 @@ public class AlexCalculation {
 
         while (count < library.booksIds.length && maxDays > 0) {
             result.add(library.booksIds[bestScoreId]);
+            if (count % library.booksPerDay == 0) {
+                maxDays--;
+            }
             count++;
-            maxDays--;
             leastScore = removeTheElement(leastScore, bestScore);
             bestScoreId = getIndexOfLargest(leastScore);
         }
