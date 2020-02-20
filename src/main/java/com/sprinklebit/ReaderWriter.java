@@ -1,24 +1,21 @@
 package com.sprinklebit;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ReaderWriter {
 
     private static String PATH_IN = "resources/in/";
     private static String PATH_OUT = "resources/out/";
 
-    public static List<String> read(String fileName) {
+    public static List<List<String>> read(String fileName) {
         File file = new File(PATH_IN + fileName);
-        List<String> list = new ArrayList<>();
+        List<List<String>> list = new ArrayList<>();
         try {
             Scanner sc = new Scanner(file);
             while (sc.hasNextLine()) {
                 String i = sc.nextLine();
-                list.add(i);
+                list.add(Arrays.asList(i.split(" ")));
             }
             sc.close();
         } catch (FileNotFoundException e) {
