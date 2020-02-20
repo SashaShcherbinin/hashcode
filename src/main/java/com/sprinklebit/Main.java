@@ -28,23 +28,32 @@ public class Main {
             scoreList[i] = Integer.parseInt(booksScore.get(i));
         }
 
+        Library bestLib = null;
+        float bestKpd = 0;
         List<Library> libs = new ArrayList<>();
         for (int i = 2; i < s.size(); i = i + 2) {
             int booksCount = Integer.parseInt(s.get(i).get(0));
             int signProcess = Integer.parseInt(s.get(i).get(1));
             int booksPerDay = Integer.parseInt(s.get(i).get(2));
+            int id = i/2;
             int[] booksList = new int[booksCount];
             for (int j = 0; j < s.get(i + 1).size(); j++) {
                 booksList[j] = Integer.parseInt(s.get(i + 1).get(j));
             }
-            Library lib = new Library(booksCount, signProcess, booksPerDay, booksList);
+
+            Library lib = new Library(id, booksCount, signProcess, booksPerDay, booksList);
+            if (bestKpd < lib.kpd) {
+                bestLib = lib;
+                bestKpd = lib.kpd;
+            }
             libs.add(lib);
         }
 
-        calculate();
-    }
+        libs.remove(bestLib);
 
-    private static void calculate() {
 
+
+
+        int a = 0;
     }
 }
