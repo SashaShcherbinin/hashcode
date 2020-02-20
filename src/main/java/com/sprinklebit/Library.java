@@ -23,7 +23,7 @@ public class Library {
             baseScore += Main.scoreList[booksId];
         }
 
-        kpd = baseScore / ((booksCount / booksPerDay) + signUpInDays)
+        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
 
     }
 
