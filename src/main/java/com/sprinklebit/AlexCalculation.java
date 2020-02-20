@@ -54,8 +54,7 @@ public class AlexCalculation {
             return result;
     }
 
-    public static int getIndexOfLargest( int[] array )
-    {
+    public static int getIndexOfLargest(int[] array) {
         if ( array == null || array.length == 0 ) return -1;
 
         int largest = 0;
