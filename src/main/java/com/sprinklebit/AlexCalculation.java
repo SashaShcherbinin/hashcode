@@ -4,29 +4,32 @@ import com.sprinklebit.output.Info;
 import com.sprinklebit.output.Result;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class AlexCalculation {
 
     public static Result cacluclate(List<Library> libs, int librariesCount, int maxDays) {
-        List<Integer> usedBooks = new ArrayList();
+        Set<Integer> usedBooks = new LinkedHashSet<>();
         int innerMaxDays = maxDays;
 
         Library bestLibrary = getBestLibrary(libs, usedBooks, innerMaxDays);
         innerMaxDays -= bestLibrary.signUpInDays;
+        usedBooks.addAll(getUsedBooks(bestLibrary, innerMaxDays));
 
         return new Result(0, new ArrayList<Info>());
     }
 
     private static Library getBestLibrary(List<Library> libs,
-                                          List<Integer> usedBooks,
+                                          Set<Integer> usedBooks,
                                           int innerMaxDays) {
         for(Library library : libs) {
             library.updateScore(innerMaxDays, usedBooks);
         }
     }
 
-    List<Integer> getUsedBooks(Library library, int maxDays) {
+    static List<Integer> getUsedBooks(Library library, int maxDays) {
 
     }
 }
