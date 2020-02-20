@@ -7,7 +7,8 @@ public class Result {
     public int libraryCount = 0;
     public List<Info> infoList;
 
-    Result(List<Info> infoList) {
+    public Result(int libraryCount , List<Info> infoList) {
+        this.libraryCount = libraryCount;
         this.infoList = infoList;
     }
 }

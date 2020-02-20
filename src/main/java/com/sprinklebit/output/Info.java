@@ -7,7 +7,7 @@ public class Info {
     public int bookCount = 0;
     public List<Integer> bookIds;
 
-    Info(int libraryId, int bookCount, List<Integer> bookIds) {
+    public Info(int libraryId, int bookCount, List<Integer> bookIds) {
         this.libraryId = libraryId;
         this.bookCount = bookCount;
         this.bookIds = bookIds;

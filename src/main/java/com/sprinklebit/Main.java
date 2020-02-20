@@ -1,5 +1,6 @@
 package com.sprinklebit;
 
+import com.sprinklebit.output.Info;
 import com.sprinklebit.output.Result;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
 
@@ -41,7 +42,7 @@ public class Main {
             int booksCount = Integer.parseInt(s.get(i).get(0));
             int signProcess = Integer.parseInt(s.get(i).get(1));
             int booksPerDay = Integer.parseInt(s.get(i).get(2));
-            int id = i/2;
+            int id = i / 2;
             int[] booksList = new int[booksCount];
             for (int j = 0; j < s.get(i + 1).size(); j++) {
                 booksList[j] = Integer.parseInt(s.get(i + 1).get(j));
@@ -54,6 +55,6 @@ public class Main {
     }
 
     private static Result calculate(List<Library> libs) {
-        return Result();
+        return new Result(0, new ArrayList<Info>());
     }
 }
