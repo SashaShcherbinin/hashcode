@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Set;
 
 public class Library {
-    public int id;
-    public int booksCount = 0;
-    public int signUpInDays = 0;
-    public int booksPerDay = 0;
-    public int[] booksIds;
+    private int id;
+    private int booksCount = 0;
+    private int signUpInDays = 0;
+    private int booksPerDay = 0;
+    private int[] booksIds;
 
     public float baseScore = 0;
 
@@ -22,14 +22,15 @@ public class Library {
         this.signUpInDays = signUpInDays;
         this.booksPerDay = booksPerDay;
         this.booksIds = booksIds;
+    }
+
+    void updateScore(int maxDays, Set<Integer> usedBooks) {
 
         baseScore = 0;
         for (int booksId : booksIds) {
             baseScore += Main.scoreList[booksId];
         }
-    }
 
-    void updateScore(int maxDays, Set<Integer> usedBooks) {
         kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
     }
 
