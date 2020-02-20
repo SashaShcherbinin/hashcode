@@ -11,7 +11,6 @@ public class Library {
     public int[] booksIds;
 
     public int baseScore = 0;
-    public float kpd = 0f;
 
     public Library(int id,
                    int booksCount,
