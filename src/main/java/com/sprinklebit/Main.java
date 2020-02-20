@@ -17,8 +17,10 @@ public class Main {
 
         calculation("a_example.txt");
         calculation("b_read_on.txt");
-        calculation("a_example.txt");
-        calculation("a_example.txt");
+        calculation("c_incunabula.txt");
+        calculation("d_tough_choices");
+        calculation("e_so_many_books.txt");
+        calculation("f_libraries_of_the_world.txt");
     }
 
     private static void calculation(String fileName) {
