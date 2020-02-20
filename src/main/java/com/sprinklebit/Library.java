@@ -1,5 +1,8 @@
 package com.sprinklebit;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Library {
     public int booksCount = 0;
     public int signUpInDays = 0;
@@ -8,6 +11,8 @@ public class Library {
 
     public int baseScore = 0;
     public float kpd = 0f;
+
+    private List<Integer> usedBooks = new ArrayList<>();
 
     public Library(int booksCount,
                    int signUpInDays,
@@ -26,5 +31,7 @@ public class Library {
         kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
 
     }
+
+
 
 }

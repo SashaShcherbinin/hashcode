@@ -41,6 +41,10 @@ public class Main {
             libs.add(lib);
         }
 
-        int a = 0;
+        calculate();
+    }
+
+    private static void calculate() {
+
     }
 }
