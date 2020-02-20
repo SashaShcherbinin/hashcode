@@ -29,7 +29,7 @@ public class AlexCalculation {
         }
     }
 
-    static List<Integer> getUsedBooks(Library library, int maxDays) {
+    static Set<Integer> getUsedBooks(Library library, int maxDays) {
 
     }
 }
