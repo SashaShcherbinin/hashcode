@@ -1,7 +1,5 @@
 package com.sprinklebit;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class Library {
@@ -34,7 +32,7 @@ public class Library {
             libraryScore += Main.scoreList[booksId];
         }
 
-        kpd = baseScore / (((float)booksCount / (float)booksPerDay) + signUpInDays);
+        baseScore = libraryScore;
     }
 
     private Set<Integer> removeUsedBooks(Set<Integer> usedBooks) {
