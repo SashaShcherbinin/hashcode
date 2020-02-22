@@ -1,4 +1,4 @@
-package com.sprinklebit.output;
+package com.sprinklebit.entity.output;
 
 import java.util.List;
 

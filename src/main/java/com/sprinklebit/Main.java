@@ -1,24 +1,27 @@
 package com.sprinklebit;
 
-import com.sprinklebit.output.Info;
-import com.sprinklebit.output.Result;
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil;
+import com.sprinklebit.entity.output.Info;
+import com.sprinklebit.entity.input.Library;
+import com.sprinklebit.entity.output.Result;
+import com.sprinklebit.mapper.ResultMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
 
     public static int[] scoreList;
 
     public static void main(String[] args) {
-//        calculation("a_example.txt");
-//        calculation("b_read_on.txt");
+        calculation("a_example.txt");
+        calculation("b_read_on.txt");
         calculation("c_incunabula.txt");
-//        calculation("d_tough_choices");
-//        calculation("e_so_many_books.txt");
-//        calculation("f_libraries_of_the_world.txt");
+        calculation("d_tough_choices.txt");
+        calculation("e_so_many_books.txt");
+        calculation("f_libraries_of_the_world.txt");
     }
 
     private static void calculation(String fileName) {
@@ -35,9 +38,10 @@ public class Main {
 
         List<Library> libs = createInput(s);
 
-        Result calculate = AlexCalculation.cacluclate(libs, librariesCount, maxDays);
+        List<Library> libraryOrder = new Calculator().calculate(libs, maxDays);
+        Result result = new ResultMapper().map(libraryOrder);
 
-        String stringResult = createOutPutString(calculate);
+        String stringResult = createOutPutString(result);
 
         try {
             ReaderWriter.write(stringResult,fileName);
@@ -72,10 +76,10 @@ public class Main {
             int booksCount = Integer.parseInt(s.get(i).get(0));
             int signProcess = Integer.parseInt(s.get(i).get(1));
             int booksPerDay = Integer.parseInt(s.get(i).get(2));
-            int id = i / 2;
-            Integer[] booksList = new Integer[booksCount];
+            int id = i / 2 - 1;
+            Set<Integer> booksList = new LinkedHashSet<>();
             for (int j = 0; j < s.get(i + 1).size(); j++) {
-                booksList[j] = Integer.parseInt(s.get(i + 1).get(j));
+                booksList.add(Integer.parseInt(s.get(i + 1).get(j)));
             }
 
             Library lib = new Library(id, booksCount, signProcess, booksPerDay, booksList);
