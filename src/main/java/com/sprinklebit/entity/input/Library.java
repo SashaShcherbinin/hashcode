@@ -50,23 +50,25 @@ public class Library {
         return booksSet;
     }
 
-    private Set<Integer> getBestBooks(Set<Integer> booksIds, int maxDays) {
-        booksIds = new LinkedHashSet(booksIds);
+    private Set<Integer> getBestBooks(Set<Integer> ids, int maxDays) {
+        ids = new LinkedHashSet(ids);
         int maxBooks = maxDays * booksPerDay;
         HashSet<Integer> scannedBooks = new HashSet<>();
         for (int i = 0; i < maxBooks; i++) {
             int bestBookScore = 0;
-            int bestBookId = 0;
-            for (int bookId : booksIds) {
+            int bestBookId = -1;
+            for (int bookId : ids) {
                 int score = Main.scoreList[bookId];
-                if (score > bestBookScore) {
+                if (score >= bestBookScore) {
                     bestBookScore = score;
                     bestBookId = bookId;
                 }
             }
-            scannedBooks.add(bestBookId);
-            booksIds.remove(bestBookId);
-            if (booksIds.isEmpty()) {
+            if (bestBookId >= 0 ) {
+                scannedBooks.add(bestBookId);
+                ids.remove(bestBookId);
+            }
+            if (ids.isEmpty()) {
                 break;
             }
         }
