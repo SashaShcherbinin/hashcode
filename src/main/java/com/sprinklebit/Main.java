@@ -12,9 +12,8 @@ public class Main {
     public static int[] scoreList;
 
     public static void main(String[] args) throws IOException {
-        List<Library> objects = readFile("a_example.txt");
-        CommonInfo c = ReaderWriter.read("a.txt");
-        Result result = calculate(objects);
+        CommonInfo commonInfo = ReaderWriter.read("a.txt");
+        Result result = calculate(commonInfo);
         writeInFile(result, "result_a_example.txt");
     }
 
@@ -33,7 +32,7 @@ public class Main {
         ReaderWriter.write(resultStr.toString(), fileName);
     }
 
-    private static Result calculate(List<Library> objects) {
+    private static Result calculate(CommonInfo commonInfo) {
         return null;
     }
 
