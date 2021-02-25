@@ -7,18 +7,18 @@ import java.util.Map;
 
 public class CommonInfo {
     public int simulationLast;
-    public int intersections;
-    public int streets;
-    public int vehicles;
+    public int intersectionNumbers;
+    public int streetNumber;
+    public int carNumber;
     public int bonus;
     public Map<String, Street> streetMap = new HashMap<>();
     public List<Path> paths = new ArrayList<>();
 
-    public CommonInfo(int simulationLast, int intersections, int streets, int vehicles, int bonus) {
+    public CommonInfo(int simulationLast, int intersectionNumbers, int streetNumber, int carNumber, int bonus) {
         this.simulationLast = simulationLast;
-        this.intersections = intersections;
-        this.streets = streets;
-        this.vehicles = vehicles;
+        this.intersectionNumbers = intersectionNumbers;
+        this.streetNumber = streetNumber;
+        this.carNumber = carNumber;
         this.bonus = bonus;
     }
 }

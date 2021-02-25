@@ -26,14 +26,14 @@ public class ReaderWriter {
                     Integer.parseInt(firstLine[3]),
                     Integer.parseInt(firstLine[4]));
             int i = 0;
-            while (i < commonInfo.streets) {
+            while (i < commonInfo.streetNumber) {
                 String[] s = sc.nextLine().split(" ");
                 Street street = new Street(Integer.parseInt(s[0]), Integer.parseInt(s[1]), s[2], Integer.parseInt(s[3]));
                 commonInfo.streetMap.put(street.name, street);
                 i++;
             }
             i = 0;
-            while (i < commonInfo.vehicles) {
+            while (i < commonInfo.carNumber) {
                 String[] s = sc.nextLine().split(" ");
                 Path path = new Path();
                 int pathQty = Integer.parseInt(s[0]);
