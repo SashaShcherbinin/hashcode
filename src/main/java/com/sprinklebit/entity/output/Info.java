@@ -1,6 +1,5 @@
 package com.sprinklebit.entity.output;
 
-import java.util.List;
 import java.util.Set;
 
 public class Info {
