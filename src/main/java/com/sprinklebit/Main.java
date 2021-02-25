@@ -12,9 +12,13 @@ public class Main {
     public static int[] scoreList;
 
     public static void main(String[] args) throws IOException {
-        CommonInfo commonInfo = ReaderWriter.read("a.txt");
+        process("a.txt");
+    }
+
+    public static void process(String fileName) throws IOException {
+        CommonInfo commonInfo = ReaderWriter.read(fileName);
         Result result = calculate(commonInfo);
-        writeInFile(result, "result_a_example.txt");
+        writeInFile(result, fileName);
     }
 
     private static void writeInFile(Result result, String fileName) throws IOException {
