@@ -13,7 +13,6 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         List<Library> objects = readFile("a_example.txt");
-        ReaderWriter rw = new ReaderWriter();
         CommonInfo c = ReaderWriter.read("a.txt");
         Result result = calculate(objects);
         writeInFile(result, "result_a_example.txt");

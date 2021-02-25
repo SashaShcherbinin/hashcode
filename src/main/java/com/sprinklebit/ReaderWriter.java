@@ -54,6 +54,22 @@ public class ReaderWriter {
         return commonInfo;
     }
 
+    public static List<List<String>> readNormal(String fileName) {
+        File file = new File(PATH_IN + fileName);
+        List<List<String>> list = new ArrayList<>();
+        try {
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()) {
+                String i = sc.nextLine();
+                list.add(Arrays.asList(i.split(" ")));
+            }
+            sc.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            list = Collections.emptyList();
+        }
+        return list;
+    }
 
     public static void write(String result, String fileName) throws IOException {
         PrintWriter writer = null;
