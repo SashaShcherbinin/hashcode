@@ -4,11 +4,11 @@ import java.util.List;
 
 public class Result {
 
-    public int libraryCount = 0;
-    public List<Info> infoList;
+    public int trafficLightNumber;
+    public List<TrafficLight> infoList;
 
-    public Result(int libraryCount , List<Info> infoList) {
-        this.libraryCount = libraryCount;
+    public Result(int trafficLightNumber, List<TrafficLight> infoList) {
+        this.trafficLightNumber = trafficLightNumber;
         this.infoList = infoList;
     }
 }
