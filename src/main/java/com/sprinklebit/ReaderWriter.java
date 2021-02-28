@@ -38,7 +38,7 @@ public class ReaderWriter {
                 Path path = new Path();
                 int pathQty = Integer.parseInt(s[0]);
                 int j = 1;
-                while (j < pathQty) {
+                while (j <= pathQty) {
                     String streetName = s[j];
                     path.streets.add(commonInfo.streetMap.get(streetName));
                     j++;
